@@ -1,1 +1,10 @@
-<button mat-button color="primary">Basic</button>
+<mat-list-item role="listitem" [ngClass]="todo.done ? 'closed' : 'open'">
+    <mat-checkbox (change)="changeState()" [checked]="todo.done">
+        <span [textContent]="todo.text"></span>
+        &nbsp;
+        <span [textContent]="todo.created | date: 'dd.yyyy.MM hh:mm:ss'"></span>
+    </mat-checkbox>
+    <button mat-button color="primary" (click)="delete()">Delete</button>
+
+
+</mat-list-item>
