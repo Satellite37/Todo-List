@@ -1,5 +1,5 @@
 <mat-list-item role="listitem" [ngClass]="todo.done ? 'closed' : 'open'">
-    <mat-checkbox (change)="changeState()" [checked]="todo.done">
+    <mat-checkbox (change)="changeState()" [checked]="todo.done" mat-line>
         <span [textContent]="todo.text"></span>
         &nbsp;
         <span [textContent]="todo.created | date: 'dd.yyyy.MM hh:mm:ss'"></span>

@@ -1,5 +1,5 @@
 <app-create></app-create>
-<mat-list>
+<mat-list class="width">
     <app-todo *ngFor="let todo of $todos| sortByDate | sortByState | async ; trackBy: trackByDate " [todo]="todo"></app-todo>
 </mat-list>
 <router-outlet></router-outlet>
