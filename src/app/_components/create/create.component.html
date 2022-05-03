@@ -1,0 +1,9 @@
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>What do you have to do ?</mat-label>
+      <input matInput placeholder="Walking the dog" formControlName="text">
+    </mat-form-field>
+    
+        <button mat-button mat-raised-button type="submit" color="primary" >Save</button>
+    
+  </form>
