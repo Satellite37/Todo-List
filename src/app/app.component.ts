@@ -6,7 +6,6 @@ import { TodoService } from './_services/todo.service';
 
 @Component({
   selector: 'app-root',
-  changeDetection: ChangeDetectionStrategy.Default,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
@@ -15,7 +14,6 @@ export class AppComponent {
   $todos = new Observable<Todo[]>();
 
   constructor(private todoService: TodoService){
-
   }
   ngOnInit(): void {
     this.todoService.getTodos();
