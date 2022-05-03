@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { of, takeUntil } from 'rxjs';
 import { TodoService } from 'src/app/_services/todo.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class CreateComponent implements OnInit {
 
   text = new FormControl('');
   todoForm = this.formBuilder.group({
-    text: new FormControl('',Validators.required)
+    text: new FormControl('', Validators.required)
   });
   constructor(private formBuilder: FormBuilder,private todoService: TodoService) { }
 
@@ -20,7 +21,9 @@ export class CreateComponent implements OnInit {
   
   onSubmit(): void
   {
-    this.todoService.create(this.todoForm.value);
+    of(this.todoService.create(this.todoForm.value)).pipe(
+      takeUntil(this.todoService.$todos)
+    ).subscribe(res => console.log(res));
     this.todoForm.reset();
   }
 }
