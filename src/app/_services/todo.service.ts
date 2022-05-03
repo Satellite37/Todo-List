@@ -34,9 +34,9 @@ export class TodoService {
     this.todos.splice(this.todos.indexOf(todo),1);
     this.save();
   }
-  save(){
-    this.$todos.next(this.todos);
+  private save(){
     localStorage.setItem("todos",JSON.stringify(this.todos));
+    this.$todos.next(this.todos);
   }
 
 }
