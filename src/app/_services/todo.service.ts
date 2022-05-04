@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, ReplaySubject, Subject, tap } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { Todo } from '../_models/todo';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { Todo } from '../_models/todo';
 export class TodoService {
 
   public todos: Todo[] = [];
-  public $todos = new ReplaySubject<Todo[]>();
+  public $todos = new BehaviorSubject<Todo[]>([]);
   constructor() { }
   getTodos(){
     let localItems = localStorage.getItem("todos");
