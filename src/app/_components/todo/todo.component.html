@@ -3,6 +3,7 @@
         <span [textContent]="todo.text"></span>
         &nbsp;
         <span [textContent]="todo.created | date: 'dd.yyyy.MM hh:mm:ss'"></span>
+        {{runChangeDetection}}
     </mat-checkbox>
     <button mat-raised-button color="warn" (click)="delete()">Delete</button>
 </mat-list-item>
